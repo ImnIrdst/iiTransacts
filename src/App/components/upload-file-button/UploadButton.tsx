@@ -2,38 +2,37 @@
 import * as React from 'react';
 import './UploadButton.css';
 import {KEY_LAST_STATE} from "../../utils/Constants";
+import {FileEntity} from "../transaction-table/TransactionTable";
 
 type Props = {};
 type State = {
   selectedFile?: File;
-  selectedFileName?: string;
-  fileContent: string;
+  selectedFileEntity?: FileEntity;
 };
 
 export class UploadButton extends React.Component<Props, State> {
-  componentDidMount() {
-    const lastState = localStorage.getItem(KEY_LAST_STATE)
-    if (lastState) {
-      this.setState(JSON.parse(lastState))
-    }
-  }
 
   componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any) {
-    localStorage.setItem(KEY_LAST_STATE, JSON.stringify(this.state))
+    localStorage.setItem(KEY_LAST_STATE, JSON.stringify(this.state.selectedFileEntity))
   }
 
   onFileChange = (event: any) => {
     const selectedFile = event.target.files[0]
 
     if (selectedFile) {
-      this.setState({selectedFile: selectedFile, selectedFileName: selectedFile.name});
+      this.setState({selectedFile: selectedFile});
 
       const reader = new FileReader();
       reader.onload = (e) => {
         if (e.target) {
           const text = e.target.result;
           if (typeof text === "string") {
-            this.setState({fileContent: text})
+            this.setState({
+              selectedFileEntity: {
+                name: selectedFile.name,
+                content: text,
+              }
+            })
           }
         }
       };
