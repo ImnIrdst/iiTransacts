@@ -1,0 +1,1 @@
+export const KEY_LAST_STATE = "KEY_LAST_STATE"
