@@ -1,0 +1,25 @@
+.Table {
+  width: 100%;
+}
+
+.Header {
+  text-align: start;
+  font-size: medium;
+}
+
+.Row {
+  text-align: start;
+  font-size: small;
+}
+
+.Data-Amount {
+  text-align: end;
+}
+
+.Amount-Income {
+  color: lawngreen;
+}
+
+.Amount-Expense {
+  color: orangered;
+}

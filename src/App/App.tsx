@@ -6,9 +6,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>iiTransactions</h1>
-        <RevolutScreen/>
+        <h1 className={"Title"}>iiTransactions</h1>
       </header>
+    <section>
+        <RevolutScreen/>
+    </section>
     </div>
   );
 }

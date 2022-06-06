@@ -1,5 +1,7 @@
+.Container {
+  flex-shrink: 1;
+}
 .Upload-Input {
-  align-content: center;
   width: 150px;
   margin: 16px;
 }

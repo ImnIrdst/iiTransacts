@@ -3,6 +3,7 @@ import * as React from 'react';
 import './UploadButton.css';
 import {KEY_LAST_STATE} from "../../utils/Constants";
 import {FileEntity} from "../transaction-table/TransactionTable";
+import "./UploadButton.css"
 
 type Props = {};
 type State = {
@@ -42,14 +43,12 @@ export class UploadButton extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className={"Container"}>
           {(!this.state || !this.state.selectedFile) &&
               <div className="Upload-Input">
                   <input type="file" onChange={this.onFileChange}/>
               </div>
           }
-        </div>
       </div>
     );
   };
